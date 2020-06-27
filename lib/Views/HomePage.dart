@@ -27,11 +27,11 @@ class _MyHomePageState extends State<MyHomePage>
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(top: 32),
-                child: Image.asset('assets/images/logo.png'),
+                child: Image.asset('assets/images/logo.jpg'),
                 alignment: Alignment.center,
               ),
               Container(
-                margin: EdgeInsets.all(16),
+                margin: EdgeInsets.only(left: 16,right: 16,top: 16),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(32)),
                 child: TextField(
@@ -44,11 +44,14 @@ class _MyHomePageState extends State<MyHomePage>
                       borderSide:
                       BorderSide(width: 1, color: Colors.black),
                     ),
-                    contentPadding: EdgeInsets.only(top: 16.0),
+                    contentPadding: EdgeInsets.only(top: 8.0),
                     fillColor: Colors.white,
                     hintText: AppLocalizations.of(context).translate("search"),
-                    hintStyle: TextStyle(fontFamily: 'Cairo', fontSize: 16.0),
+                    hintStyle: TextStyle(fontFamily: 'Cairo', fontSize: 14.0),
                     prefixIcon: Icon(Icons.search, color: Colors.grey),
+                    suffixIcon: Container(
+                      child: Image.asset("assets/images/jordan-flag-icon-16.png",fit: BoxFit.none,),
+                    ),
                   ),
                 ),
               ),
@@ -92,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage>
                                 fontWeight: FontWeight.bold)),
                       )]),
               ),
-              Expanded(
+              Flexible(
                 child: Container(
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,

@@ -33,7 +33,7 @@ class HomeGrid extends StatelessWidget{
                         print("tapped");
                       },
                       child: Container(
-                        height: 150,
+                        height: 130,
                         child: Card(
                           elevation: 2,
                           semanticContainer: true,
@@ -56,7 +56,7 @@ class HomeGrid extends StatelessWidget{
                     child: Text(
                       footer[index],
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 16,
                           fontFamily: "Cairo",
                           fontWeight: FontWeight.w600),
                     ),
