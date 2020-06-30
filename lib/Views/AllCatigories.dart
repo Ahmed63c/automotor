@@ -138,7 +138,7 @@ class Categories extends State<AllCategories> {
             ),
             Divider(
               color: Colors.grey,
-              height: 16,
+              height: 8,
               thickness: 1,
               indent: 16,
               endIndent: 16,
@@ -223,7 +223,7 @@ class Categories extends State<AllCategories> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(left: 16, right: 16),
+              margin: EdgeInsets.only(left: 16, right: 16,top: 48),
               child: Text(
                 AppLocalizations.of(context).translate("cars for rent"),
                 style: TextStyle(
@@ -234,7 +234,7 @@ class Categories extends State<AllCategories> {
             ),
             Divider(
               color: Colors.grey,
-              height: 16,
+              height: 8,
               thickness: 1,
               indent: 16,
               endIndent: 16,
@@ -267,7 +267,7 @@ class Categories extends State<AllCategories> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(left: 16, right: 16),
+              margin: EdgeInsets.only(left: 16, right: 16,top: 48),
               child: Text(
                 AppLocalizations.of(context)
                     .translate("spare parts and accessiories"),
@@ -279,7 +279,7 @@ class Categories extends State<AllCategories> {
             ),
             Divider(
               color: Colors.grey,
-              height: 16,
+              height: 8,
               thickness: 1,
               indent: 16,
               endIndent: 16,
@@ -342,7 +342,7 @@ class Categories extends State<AllCategories> {
         ),
         Divider(
           color: Colors.grey,
-          height: 16,
+          height: 48,
           thickness: 1,
           indent: 16,
           endIndent: 16,
@@ -372,8 +372,8 @@ class Categories extends State<AllCategories> {
           children: <Widget>[
             Divider(
               color: Colors.grey,
-              height: 16,
-              thickness: 1,
+              height: 48,
+              thickness: 0,
               indent: 16,
               endIndent: 16,
             ),
@@ -383,38 +383,61 @@ class Categories extends State<AllCategories> {
               child: GestureDetector(
                   onTap: () {},
                   child: Container(
-                    height: 150,
-                    width: MediaQuery.of(context).size.width,
-                    child: Card(
-                      elevation: 2,
-                      semanticContainer: true,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 0.0,
-                            style: BorderStyle.solid,
+
+                    child:Stack(
+                      children: <Widget>[
+                        Container(
+                          height: 180,
+                          width: MediaQuery.of(context).size.width,
+                          child: Card(
+                            elevation: 2,
+                            semanticContainer: true,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  width: 0.0,
+                                  style: BorderStyle.solid,
+                                ),
+                                borderRadius: BorderRadius.circular(10)),
+                            color: Colors.white,
+                            child: Image.asset(
+                              'assets/images/18.jpg',
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(10)),
-                      color: Colors.white,
-                      child: Image.asset(
-                        'assets/images/18.jpg',
-                        fit: BoxFit.fill,
-                      ),
+                        ),
+                        Wrap(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 8,right: 8,top: 8),
+                              child: Card(
+                                elevation: 2,
+                                semanticContainer: true,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4)),
+                                color: Colors.white,
+                                child:Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 4),
+                                  child: Text(
+                                    AppLocalizations.of(context).translate('maintenance centers'),
+                                    style: TextStyle(
+                                        fontSize: 18, fontFamily: "Cairo", fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ),
+
+                            )
+
+                          ],
+                        )
+                      ],
                     ),
                   )),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 16, right: 16, top: 8),
-              child: Text(
-                AppLocalizations.of(context).translate('maintenance centers'),
-                style: TextStyle(
-                    fontSize: 18, fontFamily: "Cairo", fontWeight: FontWeight.w600),
-              ),
-            ),
             Divider(
               color: Colors.grey,
-              height: 16,
-              thickness: 1,
+              height: 48,
+              thickness: 0,
               indent: 16,
               endIndent: 16,
             ),
@@ -428,33 +451,53 @@ class Categories extends State<AllCategories> {
                   child: Container(
                     height: 280,
                     width: MediaQuery.of(context).size.width,
-                    child: Card(
-                      elevation: 2,
-                      semanticContainer: true,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 0.0,
-                            style: BorderStyle.solid,
-                          ),
-                          borderRadius: BorderRadius.circular(10)),
-                      color: Colors.white,
-                      child: Image.asset(
-                        'assets/images/19.jpg',
-                        fit: BoxFit.fill,
+                    child:Stack(children: <Widget>[
+                      Card(
+                        elevation: 2,
+                        semanticContainer: true,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              width: 0.0,
+                              style: BorderStyle.solid,
+                            ),
+                            borderRadius: BorderRadius.circular(10)),
+                        color: Colors.white,
+                        child: Image.asset(
+                          'assets/images/19.jpg',
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
+
+                      Wrap(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.only(left: 8,right: 8,top: 8),
+                            child: Card(
+                              elevation: 2,
+                              semanticContainer: true,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4)),
+                              color: Colors.white,
+                              child:Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 4),
+                                child: Text(
+                                  AppLocalizations.of(context)
+                                      .translate('news and driving experiences'),
+                                  style: TextStyle(
+                                      fontSize: 18, fontFamily: "Cairo", fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ),
+
+                          )
+
+                        ],
+                      )
+                    ],)
+
                   )),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 8),
-              child: Text(
-                AppLocalizations.of(context)
-                    .translate('news and driving experiences'),
-                style: TextStyle(
-                    fontSize: 18, fontFamily: "Cairo", fontWeight: FontWeight.w600),
-              ),
-            )
           ],
         )
 
@@ -583,45 +626,108 @@ class Categories extends State<AllCategories> {
   @override
   Widget homeTile(BuildContext context, String footer, Image image) {
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
-          child: GestureDetector(
-              onTap: () {
-                setState(() {
-                });
-                print("tapped");
-              },
-              child: Container(
-                height: 140,
-                width: MediaQuery.of(context).size.width/2.1,
-                child: Card(
-                  elevation: 2,
-                  semanticContainer: true,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  shape: RoundedRectangleBorder(
-                      side: BorderSide(
+    return
+      Container(
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+           child: GestureDetector(
+          onTap: () {
+            setState(() {
+            });
+            print("tapped");
+          },
+          child: Container(
+            width: MediaQuery.of(context).size.width/2,
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  height: 140,
+                  child: Card(
+                    elevation: 2,
+                    semanticContainer: true,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(
                           width: 1.0,
                           style: BorderStyle.solid,
-                      ),
-                      borderRadius: BorderRadius.circular(10)),
-                  color: Colors.white,
-                  child: image,
+                        ),
+                        borderRadius: BorderRadius.circular(10)),
+                    color: Colors.white,
+                    child: image,
+                  ),
                 ),
-              )),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(vertical: 0,horizontal: 16),
-          child: Text(
-            footer,
-            style: TextStyle(
-                fontSize: 16, fontFamily: "Cairo", fontWeight: FontWeight.w600),
-          ),
-        ),
-      ],
+                Wrap(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(left: 8,right: 8,top: 8),
+                      child: Card(
+                        elevation: 2,
+                        semanticContainer: true,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4)),
+                        color: Colors.white,
+                        child:Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 4),
+                          child: Text(
+                            footer,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Cairo",
+                              fontWeight: FontWeight.w600,),
+                          ),
+                        ),
+                      ),
+
+                    )
+
+                  ],
+                )
+
+              ],
+            )
+          )),
     );
+
+//    return Column(
+//      crossAxisAlignment: CrossAxisAlignment.start,
+//      children: <Widget>[
+//        Container(
+//          decoration: BoxDecoration(
+//              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+//          child: GestureDetector(
+//              onTap: () {
+//                setState(() {
+//                });
+//                print("tapped");
+//              },
+//              child: Container(
+//                height: 140,
+//                width: MediaQuery.of(context).size.width/2.1,
+//                child: Card(
+//                  elevation: 2,
+//                  semanticContainer: true,
+//                  clipBehavior: Clip.antiAliasWithSaveLayer,
+//                  shape: RoundedRectangleBorder(
+//                      side: BorderSide(
+//                          width: 1.0,
+//                          style: BorderStyle.solid,
+//                      ),
+//                      borderRadius: BorderRadius.circular(10)),
+//                  color: Colors.white,
+//                  child: image,
+//                ),
+//              )),
+//        ),
+//        Container(
+//          margin: EdgeInsets.symmetric(vertical: 0,horizontal: 16),
+//          child: Text(
+//            footer,
+//            style: TextStyle(
+//                fontSize: 16, fontFamily: "Cairo", fontWeight: FontWeight.w600),
+//          ),
+//        ),
+//      ],
+//    );
   }
 }
