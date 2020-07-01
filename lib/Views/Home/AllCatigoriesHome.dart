@@ -1,4 +1,5 @@
 import 'package:automotor/Utils/AppLocalization.dart';
+import 'package:automotor/Views/Home/ProductPage.dart';
 import 'package:automotor/Widgets/HomeGrid.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -632,30 +633,32 @@ class Categories extends State<AllCategories> {
           color: Colors.white, borderRadius: BorderRadius.circular(10)),
            child: GestureDetector(
           onTap: () {
-            setState(() {
-            });
+//            setState(() {
+//            });
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => ProductPage()));
             print("tapped");
           },
           child: Container(
             width: MediaQuery.of(context).size.width/2,
             child: Stack(
               children: <Widget>[
-                Container(
-                  height: 140,
-                  child: Card(
-                    elevation: 2,
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          width: 1.0,
-                          style: BorderStyle.solid,
-                        ),
-                        borderRadius: BorderRadius.circular(10)),
-                    color: Colors.white,
-                    child: image,
+                  Container(
+                    height: 140,
+                    child: Card(
+                      elevation: 2,
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 1.0,
+                            style: BorderStyle.solid,
+                          ),
+                          borderRadius: BorderRadius.circular(10)),
+                      color: Colors.white,
+                      child: image,
+                    ),
                   ),
-                ),
                 Wrap(
                   children: <Widget>[
                     Container(

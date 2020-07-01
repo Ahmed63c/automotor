@@ -23,7 +23,48 @@
   "agencies": "وكالات",
   "cars showrooms": "معارض سيارات",
   "maintenance centers" : "مراكز صيانه",
-  "news and driving experiences": "الاخبار وتجارب القيادة"
+  "news and driving experiences": "الاخبار وتجارب القيادة",
+
+
+  "search": "ابحث",
+  "clear": "حذف",
+  "filters": "فلترة",
+  "new":"جديد",
+  "used": "مستعمل",
+  "latest": "الاحدث",
+  "ascending": "تصاعدي",
+  "descending": "تنازلي",
+  "price": "سعر",
+  "discount":"خصومات",
+  "old": "الاقدم",
+
+
+  "settings": "الاعدادات",
+  "settingsdesc": "الخصوصية وتسجيل الخروج",
+  "help": "المساعده والدعم",
+  "helpdesc": "مركز المساعده والدعم",
+  "FAQ": "الاسئلة الشائعه",
+  "questions": "سؤال و جواب",
+  "general":"عام",
+  "language": "تغيير اللغة / का",
+  "change country": "تغيير البلد",
+  "notification": "الإشعارات",
+  "legal": "عنا والملكية",
+  "about": "عن التطبيق",
+  "account": "الحساب",
+  "change pass": "تغيير كلمة المرور",
+  "signout": "تسجيل الخروج",
+  "signin": "تسجيل الدخول",
+  "Confirm Change": "تأكيد",
+  "Enter your current password": "ادخل رقم المرور الحالي",
+  "Existing Password": "رقم المرور الحالي",
+  "Enter new password": " أدخل رقم المرور الجديد",
+  "New Password": "رفم المرور الجديد",
+  "Retype new password": "تأكيد رقم المرور الجديد",
+  "Retype Password": "رقم المرور الجديد"
+
+
+
 
 
 }

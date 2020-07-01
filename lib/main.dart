@@ -1,4 +1,4 @@
-import 'package:automotor/Views/HomePage.dart';
+import 'file:///D:/crossProjects/automotor/lib/Views/Home/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -31,9 +31,9 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(title: TextStyle(color: Colors.black)),
         visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Cairo',
-          primaryColor: Colors.orange,
-          primaryColorDark: Colors.orange,
-          primarySwatch: Colors.orange
+//          primaryColor: Colors.black54,
+//          primaryColorDark: Colors.orange,
+//          primarySwatch: Colors.orange
       ),
 
       home: MyHomePage(),

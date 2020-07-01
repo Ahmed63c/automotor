@@ -23,7 +23,47 @@
   "agencies": "Agencies",
   "cars showrooms": "Cars showrooms",
   "maintenance centers" : "Maintenance centers",
-  "news and driving experiences": "News and driving experiences"
+  "news and driving experiences": "News and driving experiences",
+
+
+
+  "search": "Search",
+  "clear": "clear",
+  "filters": "Filters",
+  "new":"New",
+  "used": "Used",
+  "latest": "Latest",
+  "ascending": "Ascending",
+  "descending": "descending",
+  "price": "Price",
+  "discount":"Discount",
+  "old": "Old",
+
+  "settings": "Settings",
+  "settingsdesc": "Privacy,Settings and Logout",
+  "help": "Help & Support",
+  "helpdesc": "Help center and legal support",
+  "FAQ": "FAQ",
+  "questions": "Questions and answers",
+  "general":"General",
+  "language": "Language A / का",
+  "change country": "Change Country",
+  "notification": "Notifications",
+  "legal": "Legal & About",
+  "about": "About Us",
+  "account": "Account",
+  "change pass": "Change Password",
+  "signout": "Sign out",
+  "signin": "Sign in",
+  "Confirm Change": "Confirm Change",
+  "Enter your current password": "Enter your current password",
+  "Existing Password": "Existing Password",
+  "Enter new password": "nter new password",
+  "New Password": "New Password",
+  "Retype new password": "Retype new password",
+  "Retype Password": "Retype Password"
+
+
 
 
 }
