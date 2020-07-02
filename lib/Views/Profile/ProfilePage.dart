@@ -1,3 +1,5 @@
+import 'package:automotor/Views/Home/AddProduct.dart';
+import 'package:automotor/Widgets/BottomBar.dart';
 import 'package:automotor/Widgets/MyText.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -151,6 +153,16 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddItem()));
+
+        },
+        backgroundColor: Color(0xFFF17532),
+        child: Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomBar(index: 4,),
     );
   }
 }

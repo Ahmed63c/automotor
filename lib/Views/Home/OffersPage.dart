@@ -102,7 +102,7 @@ class OffersPage extends StatelessWidget{
                         child:Padding(
                           padding: EdgeInsets.symmetric(horizontal: 4),
                           child: Text(
-                            " dolar 3000",
+                            " 30000 دينار",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,

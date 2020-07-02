@@ -1,10 +1,12 @@
 import 'package:automotor/Utils/AppLocalization.dart';
+import 'package:automotor/Widgets/BottomBar.dart';
 import 'package:automotor/Widgets/MyText.dart';
 import 'package:automotor/Widgets/ProductCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'AddProduct.dart';
 import 'SearchPage.dart';
 
 class ProductPage extends StatefulWidget {
@@ -12,29 +14,34 @@ class ProductPage extends StatefulWidget {
   State<StatefulWidget> createState() => _ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> {
+class _ProductPageState extends State<ProductPage> with
+    TickerProviderStateMixin<ProductPage>{
+
+  TabController _tabController;
+  TabController bottomTabController;
+
   List<ProductCrad> products = [
     ProductCrad(
-      "كيا نيرو 2018 فحص جديد زيرو جمارك",
+      " هوندا اكسنت  جديد زيرو جمارك",
       'assets/images/1.jpg',
       '16,500دينار',
       '18-6-2020/16:00pm',
     ),
     ProductCrad(
       "كيا نيرو 2018 فحص جديد زيرو جمارككيا نيرو 2018 فحص جديد زيرو جمارككيا نيرو 2018 فحص جديد زيرو جمارك كيا نيرو 2018 فحص جديد زيرو جمارك",
-      'assets/images/1.jpg',
+      'assets/images/2.jpg',
       '16,500دينار',
       '18-6-2020/16:00pm',
     ),
     ProductCrad(
-      "كيا نيرو 2018 فحص جديد زيرو جمارك",
-      'assets/images/1.jpg',
+      "كيا سيراتو 2020 فحص جديد زيرو جمارك",
+      'assets/images/8.jpg',
       '16,500دينار',
       '18-6-2020/16:00pm',
     ),
     ProductCrad(
-      "كيا نيرو 2018 فحص جديد زيرو جمارك",
-      'assets/images/1.jpg',
+      " bmw  فحص جديد زيرو جمارك",
+      'assets/images/3.jpg',
       '16,500دينار',
       '18-6-2020/16:00pm',
     )
@@ -42,22 +49,19 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+    bottomTabController = TabController(length: 4, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+    return Scaffold(
+      body: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
         topsearch(context),
         topHeader(context),
-        Flexible(
-          child: SafeArea(
-              bottom: false,
-              child: Flexible(
-                  child: ListView.separated(
+       Flexible(
+           child: ListView.separated(
                       itemCount: products.length,
                       shrinkWrap: true,
                       separatorBuilder: (BuildContext context, int index) =>
@@ -147,7 +151,8 @@ class _ProductPageState extends State<ProductPage> {
                                         ],
                                       ),
                                       Flexible(
-                                        child: Column(
+                                        child:
+                                        Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           crossAxisAlignment:
@@ -165,22 +170,44 @@ class _ProductPageState extends State<ProductPage> {
                                                 ),
                                               ),
                                             ),
-                                            OutlineButton(
-                                                child: Text(
-                                                  'عمان',
-                                                  style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w300,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                                onPressed: null,
-                                                shape:
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              children: <Widget>[
+                                                OutlineButton(
+                                                    child: Text(
+                                                      'عمان',
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.w300,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                    onPressed: null,
+                                                    shape:
                                                     new RoundedRectangleBorder(
                                                         borderRadius:
-                                                            new BorderRadius
-                                                                    .circular(
-                                                                15.0))),
+                                                        new BorderRadius
+                                                            .circular(
+                                                            15.0))),
+                                                OutlineButton(
+                                                    child: Text(
+                                                      'مركبات',
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.w300,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                    onPressed: null,
+                                                    shape:
+                                                    new RoundedRectangleBorder(
+                                                        borderRadius:
+                                                        new BorderRadius
+                                                            .circular(
+                                                            15.0))),
+                                              ],
+                                            ),
                                             SizedBox(
                                               height: 10,
                                             ),
@@ -241,7 +268,7 @@ class _ProductPageState extends State<ProductPage> {
                                               ),
                                               Icon(
                                                 Icons.phone_forwarded,
-                                                color: Colors.black,
+                                                color: Colors.green,
                                               )
                                             ],
                                           ),
@@ -265,7 +292,7 @@ class _ProductPageState extends State<ProductPage> {
                                               ),
                                               Icon(
                                                 Icons.chat,
-                                                color: Colors.black,
+                                                color: Colors.blue,
                                               )
                                             ],
                                           ),
@@ -279,9 +306,21 @@ class _ProductPageState extends State<ProductPage> {
                                 )
                               ],
                             ),
-                          )))),
-        )
+                          ))
+       )
+
+
       ]),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddItem()));
+
+        },
+        backgroundColor: Color(0xFFF17532),
+        child: Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomBar(index: 2,),
     );
   }
 

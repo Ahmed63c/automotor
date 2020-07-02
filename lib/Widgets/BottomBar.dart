@@ -1,14 +1,27 @@
 import 'package:automotor/Views/Home/AddProduct.dart';
+import 'package:automotor/Views/Home/HomePage.dart';
 import 'package:automotor/Views/Profile/ProfilePage.dart';
 import 'package:flutter/material.dart';
 
-class BottomBar extends StatelessWidget {
-  final TabController controller;
-  int _currentIndex = 0;
-  var selectedColor = Colors.orange;
-  var unselectedColor = Colors.black54;
+class BottomBar extends StatefulWidget {
+ int  index;
+ BottomBar({Key key, this.index}) : super(key: key);
 
-  BottomBar({Key key, this.controller}) : super(key: key);
+
+  @override
+  State<BottomBar> createState() {
+      return _BottomBarState();
+  }
+}
+
+class _BottomBarState extends State<BottomBar> {
+  int _currentIndex ;
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +33,12 @@ class BottomBar extends StatelessWidget {
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: selectedColor,
-          unselectedItemColor: unselectedColor,
+          selectedItemColor: Colors.orange,
+          unselectedItemColor: Colors.grey,
           unselectedFontSize: 10,
           selectedFontSize: 10,
+          currentIndex:widget.index ,
+          onTap: onTabTabbed,
           items: [
             BottomNavigationBarItem(
               icon: Icon(
@@ -126,20 +141,24 @@ class BottomBar extends StatelessWidget {
 //style: TextStyle(color: Colors.black45),
                 ))
           ],
-          onTap: (currentIndex) {
-            _currentIndex = currentIndex;
-            if (_currentIndex == 0)
-              controller.animateTo(0);
-            else if (_currentIndex == 1)
-              controller.animateTo(1);
-            else if (_currentIndex == 2)
-              Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddItem()));
+        )
+    );
+  }
+  void onTabTabbed(int value) {
 
-            else if (_currentIndex == 3)
-              controller.animateTo(2);
-            else if (_currentIndex == 4) controller.animateTo(3);
-          },
-        ));
+    setState(() {
+      widget.index = value;
+      _currentIndex=value;
+    });
+
+    if (_currentIndex == 0)
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => MyHomePage()));
+//    else if (_currentIndex == 1)
+//      Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddItem()));
+//    else if (_currentIndex == 3)
+//      Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddItem()));
+    else if (_currentIndex == 4)
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => ProfilePage()));
   }
 }
 

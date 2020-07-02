@@ -54,12 +54,12 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
           color: Colors.black,
         ),
         brightness: Brightness.light,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         title: MyText(
           'settings',
-          style: TextStyle(color: Colors.black54),
+          style: TextStyle(color: Colors.black),
         ),
-        elevation: 0,
+        elevation: 15,
       ),
       body: SafeArea(
           bottom: true,
@@ -104,7 +104,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                     border: InputBorder.none,
                                     hintText: AppLocalizations.of(context).translate('Existing Password'),
                                     hintStyle: TextStyle(fontSize: 12.0)),
-                              )),
+                              )
+                          ),
                           Padding(
                             padding:
                             const EdgeInsets.only(top: 24, bottom: 12.0),

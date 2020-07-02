@@ -9,6 +9,7 @@ class ChangeLanguagePage extends StatefulWidget {
 class _ChangeCountryPageState extends State<ChangeLanguagePage> {
   List<String> languages = [
     'العربيه',
+    'English'
   ];
 
   String currentLanguage = '';
@@ -25,9 +26,9 @@ class _ChangeCountryPageState extends State<ChangeLanguagePage> {
         backgroundColor: Colors.transparent,
         title: MyText(
           'settings',
-          style: TextStyle(color: Colors.black54),
+          style: TextStyle(color: Colors.black),
         ),
-        elevation: 0,
+        elevation: 15,
       ),
       body: SafeArea(
         bottom: true,

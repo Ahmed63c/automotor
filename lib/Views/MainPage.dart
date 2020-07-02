@@ -1,22 +1,28 @@
 import 'package:automotor/Utils/AppLocalization.dart';
-import 'package:automotor/Views/Home/AddProduct.dart';
-import 'file:///D:/crossProjects/automotor/lib/Views/Home/AllCatigoriesHome.dart';
-import 'file:///D:/crossProjects/automotor/lib/Views/Home/OffersPage.dart';
-import 'package:automotor/Views/Profile/ProfilePage.dart';
-import 'file:///D:/crossProjects/automotor/lib/Views/Home/SearchPage.dart';
 import 'package:automotor/Widgets/BottomBar.dart';
+import 'package:custom_navigator/custom_scaffold.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
+import 'Home/AddProduct.dart';
+import 'Home/AllCatigoriesHome.dart';
+import 'Home/OffersPage.dart';
+import 'Home/SearchPage.dart';
+import 'Profile/ProfilePage.dart';
+
+class MainPage extends StatefulWidget {
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
-    with TickerProviderStateMixin<MyHomePage> {
+class _MyHomePageState extends State<MainPage>
+    with TickerProviderStateMixin<MainPage>{
   TabController _tabController;
   TabController bottomTabController;
+  // Custom navigator takes a global key if you want to access the
+  // navigator from outside it's widget tree subtree
+  GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   void initState() {
@@ -25,27 +31,50 @@ class _MyHomePageState extends State<MyHomePage>
     bottomTabController = TabController(length: 4, vsync: this);
   }
 
-
   @override
   Widget build(BuildContext context) {
+    // Here's the custom scaffold widget
+    // It takes a normal scaffold with mandatory bottom navigation bar
+    // and children who are your pages
+    return CustomScaffold(
+      scaffold: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddItem()));
 
-
-    return
-      Scaffold(
-        body: home(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddItem()));
-
-        },
-        backgroundColor: Color(0xFFF17532),
-        child: Icon(Icons.add),
+          },
+          backgroundColor: Color(0xFFF17532),
+          child: Icon(Icons.add),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.grey,
+          unselectedFontSize: 10,
+          selectedFontSize: 10,
+          items:items ,
+        ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomBar(index: 0,),
-    );
-  }
 
+      // Children are the pages that will be shown by every click
+      // They should placed in order such as
+      // `page 0` will be presented when `item 0` in the [BottomNavigationBar] clicked.
+      children: <Widget>[
+        home(),
+        ProfilePage(),
+        ProfilePage(),
+        ProfilePage(),
+        ProfilePage(),
+
+
+      ],
+
+      // Called when one of the [items] is tapped.
+      onItemTap: (index) {},
+    );
+
+
+  }
   @override
   Widget home() {
     return Column(
@@ -60,8 +89,7 @@ class _MyHomePageState extends State<MyHomePage>
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: Colors.black54, width: 0.7)),
-          child:
-          TextField(
+          child: TextField(
             readOnly: true,
             decoration: InputDecoration(
               border: InputBorder.none,
@@ -145,4 +173,108 @@ class _MyHomePageState extends State<MyHomePage>
       ],
     );
   }
+
+ final items=[
+  BottomNavigationBarItem(
+  icon: Icon(
+  Icons.home,
+//                color: controller.index == 0 ? selectedColor : unselectedColor,
+  ),
+  title: Text(
+  "الرئيسية",
+  ),
+  ),
+  BottomNavigationBarItem(
+  icon: new Stack(
+  children: <Widget>[
+  Icon(
+  Icons.chat,
+//                        color: controller.index == 1
+//                            ? selectedColor
+//                            : unselectedColor
+  ),
+  Positioned(
+  right: 0,
+  child: new Container(
+  padding: EdgeInsets.all(1),
+  decoration: new BoxDecoration(
+  color: Colors.red,
+  borderRadius: BorderRadius.circular(6),
+  ),
+  constraints: BoxConstraints(
+  minWidth: 12,
+  minHeight: 12,
+  ),
+  child: new Text(
+  '99',
+  style: new TextStyle(
+  color: Colors.white,
+  fontSize: 8,
+  ),
+  textAlign: TextAlign.center,
+  ),
+  ),
+  )
+  ],
+  ),
+  title: new Text(
+  "دردشاتي ",
+//style: TextStyle(color: Colors.black45),
+  )),
+  BottomNavigationBarItem(
+  icon: new Icon(
+  Icons.add,
+  ),
+  title: new Text(
+  "أضف إعلان",
+//style: TextStyle(color: Colors.black45),
+  )),
+  BottomNavigationBarItem(
+  icon: Stack(
+  children: <Widget>[
+  Icon(
+  Icons.notifications_active,
+//                        color: controller.index == 2
+//                            ? selectedColor
+//                            : unselectedColor
+  ),
+  Positioned(
+  right: 0,
+  child: new Container(
+  padding: EdgeInsets.all(1),
+  decoration: new BoxDecoration(
+  color: Colors.red,
+  borderRadius: BorderRadius.circular(6),
+  ),
+  constraints: BoxConstraints(
+  minWidth: 12,
+  minHeight: 12,
+  ),
+  child: new Text(
+  '99',
+  style: new TextStyle(
+  color: Colors.white,
+  fontSize: 8,
+  ),
+  textAlign: TextAlign.center,
+  ),
+  ),
+  )
+  ],
+  ),
+  title: new Text(
+  "إشعارات",
+//style: TextStyle(color: Colors.black45),
+  )),
+  BottomNavigationBarItem(
+  icon: new Icon(
+  Icons.person_outline,
+//                    color:  controller.index == 3 ? selectedColor : unselectedColor
+  ),
+  title: new Text(
+  " حسابي",
+//style: TextStyle(color: Colors.black45),
+  ))
+  ];
+
 }

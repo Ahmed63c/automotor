@@ -1,4 +1,5 @@
 
+import 'package:automotor/Views/Profile/EditProfile.dart';
 import 'package:automotor/Widgets/MyText.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +17,12 @@ class SettingsPage extends StatelessWidget {
             color: Colors.black,
           ),
           brightness: Brightness.light,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           title: MyText(
             'settings',
-            style: TextStyle(color: Colors.black54),
+            style: TextStyle(color: Colors.black),
           ),
-          elevation: 0,
+          elevation: 15,
         ),
         body: SafeArea(
           bottom: true,
@@ -43,6 +44,13 @@ class SettingsPage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0),
                           ),
+                        ),
+                        Divider(
+                          color: Colors.grey,
+                          height: 4,
+                          thickness: 1,
+                          indent: 0,
+                          endIndent: 0,
                         ),
                         ListTile(
                           title: MyText('language'),
@@ -84,6 +92,13 @@ class SettingsPage extends StatelessWidget {
                                 fontSize: 18.0),
                           ),
                         ),
+                        Divider(
+                          color: Colors.grey,
+                          height: 16,
+                          thickness: 0,
+                          indent: 0,
+                          endIndent: 0,
+                        ),
                         ListTile(
                           title: MyText('change pass'),
                           leading: Image.asset('assets/icons/change_pass.png'),
@@ -95,6 +110,12 @@ class SettingsPage extends StatelessWidget {
                           leading: Image.asset('assets/icons/sign_out.png'),
 //                          onTap: () => Navigator.of(context).push(
 //                              MaterialPageRoute(builder: (_) => WelcomeBackPage())),
+                        ),
+                        ListTile(
+                          title: MyText('edit profile'),
+                          leading: Image.asset('assets/icons/sign_out.png'),
+                          onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (_) => EditProfile())),
                         ),
 
                       ],
