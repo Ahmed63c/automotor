@@ -27,4 +27,6 @@ class StorageUtil {
     return _preferences.setString(key, value);
   }
 
+  static void putBool(String logged_in, bool bool) {}
+
 }

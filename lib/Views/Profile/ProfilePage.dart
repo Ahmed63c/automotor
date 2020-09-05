@@ -1,13 +1,30 @@
+import 'package:automotor/Utils/Constant.dart';
+import 'package:automotor/Utils/SharedPrefrence.dart';
+import 'package:automotor/ViewModels/LoginViewModel.dart';
 import 'package:automotor/Views/Home/AddProduct.dart';
+import 'package:automotor/Views/Profile/LoginScreen.dart';
 import 'package:automotor/Widgets/BottomBar.dart';
 import 'package:automotor/Widgets/MyText.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'FaqPage.dart';
 import 'Settings.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+
+  String userName="";
+  @override
+  void initState() {
+    super.initState();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,104 +39,9 @@ class ProfilePage extends StatelessWidget {
               children: <Widget>[
                 CircleAvatar(
                   maxRadius: 48,
-                  backgroundImage: AssetImage('assets/images/1.jpg'),
+                  backgroundImage: AssetImage('assets/images/profile_placeholder.png'),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "اسم المستخدم",
-                    style: TextStyle(fontSize:16,fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: MyText(
-                    "signin",
-                    style: TextStyle(fontSize:16,fontWeight: FontWeight.bold),
-                  ),
-
-                ),
-//                Container(
-//                  margin: EdgeInsets.symmetric(vertical: 16.0),
-//                  decoration: BoxDecoration(
-//                      borderRadius: BorderRadius.only(
-//                          topLeft: Radius.circular(8),
-//                          topRight: Radius.circular(8),
-//                          bottomLeft: Radius.circular(8),
-//                          bottomRight: Radius.circular(8)),
-//                      color: Colors.white,
-//                      boxShadow: [
-//                        BoxShadow(
-//                            color: Colors.yellow,
-//                            blurRadius: 4,
-//                            spreadRadius: 1,
-//                            offset: Offset(0, 1))
-//                      ]),
-//                  height: 150,
-//                  child: Center(
-//                    child: Row(
-//                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                      children: <Widget>[
-//                        Column(
-//                          mainAxisAlignment: MainAxisAlignment.center,
-//                          children: <Widget>[
-//                            IconButton(
-//                              icon: Image.asset('assets/icons/wallet.png'),
-//                              onPressed:()=> Navigator.of(context).push(
-//                                  MaterialPageRoute(
-//                                      builder: (_) => WalletPage())),
-//                            ),
-//                            Text(
-//                              'Wallet',
-//                              style: TextStyle(fontWeight: FontWeight.bold),
-//                            )
-//                          ],
-//                        ),
-//                        Column(
-//                          mainAxisAlignment: MainAxisAlignment.center,
-//                          children: <Widget>[
-//                            IconButton(
-//                              icon: Image.asset('assets/icons/truck.png'),
-//                              onPressed: () => Navigator.of(context).push(
-//                                  MaterialPageRoute(builder: (_) => TrackingPage())),
-//                            ),
-//                            Text(
-//                              'Shipped',
-//                              style: TextStyle(fontWeight: FontWeight.bold),
-//                            )
-//                          ],
-//                        ),
-//                        Column(
-//                          mainAxisAlignment: MainAxisAlignment.center,
-//                          children: <Widget>[
-//                            IconButton(
-//                              icon: Image.asset('assets/icons/card.png'),
-//                              onPressed:()=> Navigator.of(context).push(
-//                                  MaterialPageRoute(
-//                                      builder: (_) => PaymentPage())),
-//                            ),
-//                            Text(
-//                              'Payment',
-//                              style: TextStyle(fontWeight: FontWeight.bold),
-//                            )
-//                          ],
-//                        ),
-//                        Column(
-//                          mainAxisAlignment: MainAxisAlignment.center,
-//                          children: <Widget>[
-//                            IconButton(
-//                              icon: Image.asset('assets/icons/contact_us.png'), onPressed: () {},
-//                            ),
-//                            Text(
-//                              'Support',
-//                              style: TextStyle(fontWeight: FontWeight.bold),
-//                            )
-//                          ],
-//                        ),
-//                      ],
-//                    ),
-//                  ),
-//                ),
+                userNameView(),
                 ListTile(
                   title: MyText('settings'),
                   subtitle: MyText('settingsdesc'),
@@ -164,5 +86,35 @@ class ProfilePage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomBar(index: 4,),
     );
+  }
+
+  Widget userNameView() {
+    StorageUtil.getInstance().then((storage){
+    setState(() {
+      userName=StorageUtil.getString(Constant.USER_NAME);
+    });}
+    );
+     return userName==""?
+      GestureDetector(
+        onTap: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (_)=>
+              ChangeNotifierProvider(
+                create: (context)=>LoginViewModel(),
+                child: Login(),
+              )));
+        }
+        ,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: MyText(
+            "signin",
+            style: TextStyle(fontSize:16,fontWeight: FontWeight.bold),
+          ),
+
+        ),
+      ):Text(
+        userName,
+        style: TextStyle(fontSize:16,fontWeight: FontWeight.bold,fontFamily: "Cairo"),
+      );
   }
 }

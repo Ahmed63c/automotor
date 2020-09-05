@@ -1,14 +1,19 @@
+
 import 'dart:developer';
+
+import 'package:automotor/Utils/Constant.dart';
+import 'package:automotor/Utils/SharedPrefrence.dart';
 import 'package:dio/dio.dart';
 
 class DioProvider {
   static Dio instance() {
     final dio = Dio();
     dio.options=new BaseOptions(
-      baseUrl:'https://newsapi.org/v2/top-headlines?country=us&apiKey=16451bb2039f440a95c6f22529cbce3e',
+      baseUrl:Constant.BASE_URL,
       receiveDataWhenStatusError: true,
       connectTimeout: 60*1000, // 60 seconds
-      receiveTimeout: 60*1000, // 60 s
+      receiveTimeout: 60*1000,
+      followRedirects: true,
     );
     dio.interceptors.add(HttpLogInterceptor());
     return dio;
@@ -23,6 +28,10 @@ class HttpLogInterceptor extends InterceptorsWrapper {
         "method=${options.method}\n"
         "headers=${options.headers}\n"
         "queryParameters=${options.queryParameters}");
+    StorageUtil.getInstance().then((storage){
+      String token= StorageUtil.getString(Constant.TOKEN);
+      options.headers["Authorization"] = "Bearer " + token;
+    });
 
     return options;
   }

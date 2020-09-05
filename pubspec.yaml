@@ -35,7 +35,12 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   rubber: ^0.3.2
-  flutter_svg: ^0.17.4
+  flutter_svg: ^0.18.1
+  json_annotation: ^3.0.1
+  custom_navigator: ^0.3.0
+  wc_form_validators: ^0.1.1
+
+
 
 
 

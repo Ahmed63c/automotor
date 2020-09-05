@@ -62,10 +62,33 @@
   "New Password": "رفم المرور الجديد",
   "Retype new password": "تأكيد رقم المرور الجديد",
   "Retype Password": "رقم المرور الجديد",
-  "edit profile": "تعديل الحساب"
+  "edit profile": "تعديل الحساب",
+
+  "loading": "تحميل...",
+  "error_field": "لايمكن أن يكون الحقل فارغا",
+  "error": "حدث خطأ ما تحقق من اتصال الإنترنت وحاول مرة أخري",
+  "error_title": "خطأ",
+  "error_empty": "لاتوجد بيانات ",
+  "error_match": "رقم المرور غير متطابق",
+  "error_email_validate": "البريد الالكتروني غير صحيح",
+  "error_pass_validate_less": "رقم المرور لايمكن ان يكون اقل من 9 ارقام",
+  "error_pass_validate_more": "رقم المرور لايمكن أن يكون اكثرمن 15 رقم",
+  "error_phone_validate": "رقم الهاتف غير صحيح",
+  "error_phone_less": "رقم الهاتف اقل من 10 ارقام",
+  "error_alphapet": "مسموح بالحروف فقط",
+  "error_less_character": "الاسم اقل من 3 حروف",
 
 
-
-
-
+  "login": "تسجيل الدخول",
+  "hint_email_login": "البريد الالكتروني",
+  "hint_password_login": "الرقم السري",
+  "hint_password_confirm": " تأكيد الرقم السري",
+  "sign_in": "تسجيل الدخول",
+  "dont_have_account": "ليس لديك حساب ؟",
+  "already_have_acount": "هل لديك حساب ؟",
+  "register_new_user": "تسجيل حساب جديد",
+  "register": "تسجيل",
+  "first_name": "الاسم الاول ",
+  "last_name": "الاسم الاخير",
+  "phone": "رقم الهاتف"
 }

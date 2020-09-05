@@ -62,9 +62,36 @@
   "New Password": "New Password",
   "Retype new password": "Retype new password",
   "Retype Password": "Retype Password",
-  "edit profile": "Edit Profile"
+  "edit profile": "Edit Profile",
 
 
+
+  "loading": "Loading...",
+  "error_field": "this field cant be empty",
+  "error": "Something went wrong check internet and try again",
+  "error_title": "error",
+  "error_empty": "no data available",
+  "error_match": "password did not match",
+  "error_email_validate": "Invalid email address",
+  "error_pass_validate_less": "password cannot be less than 9 numbers",
+  "error_pass_validate_more": "password cannot be more than 15 numbers",
+  "error_phone_validate": "phone number is invalid",
+  "error_phone_less": "phone number is less than 10 numbers",
+  "error_alphapet": "Only alphabets are allowed",
+  "error_less_character": "name is less than 3 characters",
+
+  "login":"Login",
+  "hint_email_login": "Email",
+  "hint_password_login": "Password",
+  "hint_password_confirm": "Confirm Password",
+  "sign_in": "Sign in",
+  "dont_have_account": "Don't Have Account",
+  "already_have_acount": "Already Have Account",
+  "register_new_user": "Register New User",
+  "register": "Register",
+  "first_name": "First name ",
+  "last_name": "Last name",
+  "phone": "Phone Number"
 
 
 }

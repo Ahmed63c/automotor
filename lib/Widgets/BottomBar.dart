@@ -53,37 +53,37 @@ class _BottomBarState extends State<BottomBar> {
                 icon: new Stack(
                   children: <Widget>[
                     Icon(
-                      Icons.chat,
+                      Icons.add_circle_outline,
 //                        color: controller.index == 1
 //                            ? selectedColor
 //                            : unselectedColor
                     ),
-                    Positioned(
-                      right: 0,
-                      child: new Container(
-                        padding: EdgeInsets.all(1),
-                        decoration: new BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        constraints: BoxConstraints(
-                          minWidth: 12,
-                          minHeight: 12,
-                        ),
-                        child: new Text(
-                          '99',
-                          style: new TextStyle(
-                            color: Colors.white,
-                            fontSize: 8,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    )
+//                    Positioned(
+//                      right: 0,
+//                      child: new Container(
+//                        padding: EdgeInsets.all(1),
+//                        decoration: new BoxDecoration(
+//                          color: Colors.red,
+//                          borderRadius: BorderRadius.circular(6),
+//                        ),
+//                        constraints: BoxConstraints(
+//                          minWidth: 12,
+//                          minHeight: 12,
+//                        ),
+//                        child: new Text(
+//                          '99',
+//                          style: new TextStyle(
+//                            color: Colors.white,
+//                            fontSize: 8,
+//                          ),
+//                          textAlign: TextAlign.center,
+//                        ),
+//                      ),
+//                    )
                   ],
                 ),
                 title: new Text(
-                  "دردشاتي ",
+                  "كارفاكس",
 //style: TextStyle(color: Colors.black45),
                 )),
             BottomNavigationBarItem(
@@ -98,37 +98,37 @@ class _BottomBarState extends State<BottomBar> {
                 icon: Stack(
                   children: <Widget>[
                     Icon(
-                      Icons.notifications_active,
+                      Icons.add_circle_outline,
 //                        color: controller.index == 2
 //                            ? selectedColor
 //                            : unselectedColor
                     ),
-                    Positioned(
-                      right: 0,
-                      child: new Container(
-                        padding: EdgeInsets.all(1),
-                        decoration: new BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        constraints: BoxConstraints(
-                          minWidth: 12,
-                          minHeight: 12,
-                        ),
-                        child: new Text(
-                          '99',
-                          style: new TextStyle(
-                            color: Colors.white,
-                            fontSize: 8,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    )
+//                    Positioned(
+//                      right: 0,
+//                      child: new Container(
+//                        padding: EdgeInsets.all(1),
+//                        decoration: new BoxDecoration(
+//                          color: Colors.red,
+//                          borderRadius: BorderRadius.circular(6),
+//                        ),
+//                        constraints: BoxConstraints(
+//                          minWidth: 12,
+//                          minHeight: 12,
+//                        ),
+//                        child: new Text(
+//                          '99',
+//                          style: new TextStyle(
+//                            color: Colors.white,
+//                            fontSize: 8,
+//                          ),
+//                          textAlign: TextAlign.center,
+//                        ),
+//                      ),
+//                    )
                   ],
                 ),
                 title: new Text(
-                  "إشعارات",
+                  "كارسير",
 //style: TextStyle(color: Colors.black45),
                 )),
             BottomNavigationBarItem(
